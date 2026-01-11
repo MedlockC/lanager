@@ -28,7 +28,6 @@ onUnmounted(() => {
 </script>
 
 <template>
-<div>blah</div>
     <table>
             <tbody>
             <active-game

@@ -32,7 +32,6 @@ onUnmounted(() => {
 </script>
 
 <template>
-<div>blah</div>
     <table class="table">
         <tbody>
         <event
