@@ -95,9 +95,10 @@ class UpdateSteamUserAppsService
                         'apps_updated_at' => now(),
                     ]
                 );
-
+                $errorApp = -1;
                 foreach ($apps as $app) {
-                    $steamAccount->user->steamApps()
+                    try{
+                        $steamAccount->user->steamApps()
                         ->updateOrCreate(
                             ['steam_app_id' => $app->appId],
                             [
@@ -105,10 +106,22 @@ class UpdateSteamUserAppsService
                                 'playtime_forever' => $app->playtimeForever,
                             ]
                         );
-                }
+                    }catch (Exception $ee) {
+                        $errorApp = $app->appId;
+                    }
+                }               
 
                 // Add the user to the updated array
                 $this->updated[$steamAccount->provider_id] = $steamAccount->user->username;
+                if($errorApp > 0){
+                    $this->errors->add(
+                        $steamAccount->provider_id,
+                        trans(
+                            'phrase.unable-to-update-data-for-user-x',
+                            ['x' => $steamAccount->user->username, 'error' => 'Error adding app id' . $errorApp]
+                        )
+                    );
+                }
             } catch (Exception $e) {
                 $this->errors->add(
                     $steamAccount->provider_id,
