@@ -19,7 +19,7 @@ import moment from 'moment';
         data() {
             return {
                 time: new moment().format("HH:mm"),
-                now: new moment(),
+                now: new moment().format("YYYY-MM-DDTHH:mm:ss"),
                 events: []
             };
         },
@@ -34,7 +34,7 @@ import moment from 'moment';
             update() {
                 this.$data.time = new moment().format("HH:mm");
                 this.$data.now = new moment();
-                axios.get('events?after=' + this.$data.now.format() + '&limit=6')
+                axios.get('events?after=' + this.$data.now.format("YYYY-MM-DDTHH:mm:ss") + '&limit=6')
                     .then((response) => {
                         this.$data.events = response.data.data;
                     }, (error) => {
