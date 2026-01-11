@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import moment from 'moment';
     export default {
         props: ['status', 'start', 'end', 'now'],
         data() {
