@@ -38,12 +38,10 @@ class UserController extends Controller
             if (Auth::check() && $user->id != Auth::user()->id) {
                 $authUserGames = Auth::user()
                     ->steamApps()
-                    ->where('playtime_forever', '<>', 0)
                     ->pluck('steam_app_id')->toArray();
 
                 $gamesInCommon = $user->steamApps()
                     ->with('app')
-                    ->where('playtime_forever', '<>', 0)
                     ->whereIn('steam_app_id', $authUserGames)
                     ->orderBy('playtime_forever', 'desc')
                     ->paginate(5, ['*'], 'gamesInCommon');
@@ -52,7 +50,6 @@ class UserController extends Controller
             // Get games owned by the user
             $gamesOwned = $user->steamApps()
                 ->with('app')
-                ->where('playtime_forever', '<>', 0)
                 ->orderBy('playtime_forever', 'desc')
                 ->paginate(5, ['*'], 'gamesOwned');
 
