@@ -12,8 +12,7 @@ const baseCalendarOptions = reactive({
     views: {
         timeGridThreeDay: {
             type: 'timeGrid',
-            duration: {days: 4},
-			buttonText: '4 day'
+            duration: {days: 3}
         }
     },
     height: 'auto',
@@ -24,7 +23,7 @@ const baseCalendarOptions = reactive({
     footerToolbar: {
         start: '',
         center: '',
-        end: ' timeGridDay, timeGridThreeDay,today, prev,next',
+        end: 'today prev,next',
     },
     buttonIcons: false,
     eventColor: '#157800',

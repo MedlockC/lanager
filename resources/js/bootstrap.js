@@ -4,7 +4,6 @@ import 'bootstrap';
 import {TempusDominus, Namespace} from '@eonasdan/tempus-dominus';
 import {createApp} from 'vue';
 import ClipboardJS from 'clipboard';
-import moment from 'moment';
 import {I18n} from 'laravel-vue-i18n';
 
 window.axios = axios;
