@@ -11,7 +11,7 @@ const events = ref([]);
 const update = () => {
     time.value = moment().format("HH:mm");
     now.value = moment();
-    axios.get(`events?after=${now.value.format("Y-m-d\TH:i:s")}&limit=6`)
+    axios.get(`events?after=${now.value.format("YYYY-MM-DDTHH:mm:ss")}&limit=6`)
         .then((response) => {
             events.value = response.data.data;
         })
