@@ -25,19 +25,19 @@ const timer = computed(() => {
 <template>
     <tr>
         <td class="event-status">
-            <EventStatus :status="status"></EventStatus>
+            <event-status :status="status"></event-status>
         </td>
         <td class="event-name">{{ name }}</td>
         <td class="event-start-end">
-            <EventStartAndEnd :start="start" :end="end"></EventStartAndEnd>
+            <event-start-and-end :start="start" :end="end"></event-start-and-end>
         </td>
         <td class="event-relative-time">
-            <EventRelativeTime
+            <event-relative-time
                 :status="status"
                 :start="start"
                 :end="end"
                 :now="now"
-            ></EventRelativeTime>
+            ></event-relative-time>
         </td>
     </tr>
 </template>
