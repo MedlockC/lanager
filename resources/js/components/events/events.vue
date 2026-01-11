@@ -36,9 +36,9 @@ onUnmounted(() => {
     <table class="table">
         <tbody>
         <event
-            v-for="event in events"
-            :key="event.id"
-            v-bind="event"
+            v-for="eevent in events"
+            :key="eevent.id"
+            v-bind="eevent"
             :now="now"
         />
         </tbody>
