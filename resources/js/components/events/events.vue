@@ -1,37 +1,38 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
-import moment from 'moment';
-import axios from 'axios';
-import event from './event.vue';
+import { ref, onMounted, onUnmounted } from 'vue'
+import moment from 'moment'
+import axios from 'axios'
+import event from './event.vue'
 
-const time = ref(moment().format("HH:mm"));
-const now = ref(moment());
-const events = ref([]);
+const time = ref(moment().format("HH:mm"))
+const now = ref(moment())
+const events = ref([])
 
 const update = () => {
-    time.value = moment().format("HH:mm");
-    now.value = moment();
+    time.value = moment().format("HH:mm")
+    now.value = moment()
     axios.get(`events?after=${now.value.format("YYYY-MM-DDTHH:mm:ss")}&limit=6`)
         .then((response) => {
-            events.value = response.data.data;
+            events.value = response.data.data
         })
         .catch((error) => {
-            console.log('Error getting events', error);
-        });
-};
+            console.log('Error getting events', error)
+        })
+}
 
-let intervalId;
+let intervalId
 onMounted(() => {
-    update();
-    intervalId = setInterval(update, 60000);
+    update()
+    intervalId = setInterval(update, 60000)
 });
 
 onUnmounted(() => {
-    if (intervalId) clearInterval(intervalId);
-});
+    clearInterval(intervalId)
+})
 </script>
 
 <template>
+<div>blah</div>
     <table class="table">
         <tbody>
         <event
