@@ -1,7 +1,7 @@
 <footer class="footer mt-auto py-3 bg-dark">
         <div class="container">
         <span class="text-muted">
-            Add DuckWerk Steam Friend Code <b>1724145801</b> to share your steam status here. 
+            Add DuckWerk Steam Friend Code <code><b>1724145801</b></code> to share your steam status here. 
         </span>
         </div>
     <div class="container">
