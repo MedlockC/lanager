@@ -8,7 +8,7 @@
 
     <div class="text-center">
       <h1 class="h3 mt-3 mb-3 font-weight-normal">@lang('title.login')</h1>
-
+	  <p class="mb-3">Add DuckWerk Steam Friend Code <code>1724145801</code> to share your steam status on the site.</p>
       <p class="mb-3">@lang('phrase.please-sign-in')</p>
 
       <a href="{{ url('/auth/steam') }}">
